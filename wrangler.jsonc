@@ -1,0 +1,18 @@
+// Cloudflare Workers (static assets) — serves the dist/ folder.
+// Deploy: npm run deploy   (first time: npx wrangler login)
+{
+  "name": "nayra-website",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  },
+  // Your subdomain. The parent domain must be in the same Cloudflare account;
+  // Cloudflare creates the DNS record + SSL certificate automatically.
+  "routes": [
+    { "pattern": "nayrawater.avigronix.com", "custom_domain": true }
+  ],
+  "workers_dev": true,
+  "preview_urls": false
+}

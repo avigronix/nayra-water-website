@@ -106,6 +106,8 @@ const dist = p('dist');
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(dist);
 cpSync(p('assets'), join(dist, 'assets'), { recursive: true, filter: (s) => !/(\.DS_Store|\.md)$/.test(s) });
+// Cloudflare: never serve .htaccess as a file
+writeFileSync(join(dist, '.assetsignore'), '.htaccess\n.assetsignore\n');
 for (const f of ['robots.txt', 'sitemap.xml', '_headers', '.htaccess']) if (existsSync(p(f))) cpSync(p(f), join(dist, f));
 
 // cache-busting: ?v=<hash> on JS so it can be cached for a year

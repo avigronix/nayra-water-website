@@ -41,6 +41,15 @@ Upload **only the contents of `dist/`** to the host (Hostinger/cPanel `public_ht
 `dist/` contains: `index.html`, `assets/`, `robots.txt`, `sitemap.xml`, plus `.htaccess` / `_headers`
 (security headers — each host simply ignores the file meant for the other).
 
+### Cloudflare (Workers & Pages) — https://nayrawater.avigronix.com
+```bash
+npx wrangler login   # first time only, opens the browser
+npm run deploy       # builds dist/ and deploys it as a static-assets Worker
+```
+Settings are in `wrangler.jsonc`. `avigronix.com` must be in the same Cloudflare account:
+the subdomain's DNS record and SSL certificate are created automatically on the first deploy.
+`_headers` is applied by Cloudflare; `.htaccess` is excluded via `dist/.assetsignore`.
+
 ## Performance notes
 - In `dist/index.html` the CSS is inlined (saves a full network round-trip on slow mobile data).
   `npm run dist` automatically adds that exact CSS block's sha256 hash to the CSP in `index.html`,

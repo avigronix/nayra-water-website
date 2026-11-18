@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.nayrawater.in/sitemap.xml
+Sitemap: https://nayrawater.avigronix.com/sitemap.xml

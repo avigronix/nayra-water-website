@@ -11,7 +11,7 @@ window.NAYRA_CONFIG = {
   company: "NAYRA Pure Water",
 
   // Final website address (https, bina aakhri "/" ke)
-  siteUrl: "https://www.nayrawater.in", // TODO: asli domain confirm karein
+  siteUrl: "https://nayrawater.avigronix.com", // TODO: baad mein asli domain aaye to badlein
 
   // WhatsApp number: country code ke saath, bina + / space ke (e.g. 919876543210)
   whatsappNumber: "919999999999", // TODO: asli number daalein

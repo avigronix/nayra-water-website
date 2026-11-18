@@ -1,0 +1,113 @@
+/* NAYRA — Tailwind v4 source. Build: npm run build  (output: assets/css/style.css) */
+@import "tailwindcss";
+@source "../index.html";
+@source "../assets/js";
+
+/* Self-hosted fonts (SIL Open Font License). Poppins = Latin subset;
+   Tiro Devanagari Hindi = subset containing only the tagline "हर घूँट में नयापन". */
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/poppins-400.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/poppins-500.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/poppins-600.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/poppins-700.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 800; font-display: swap; src: url("../fonts/poppins-800.woff2") format("woff2"); }
+@font-face { font-family: "Tiro Latin"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/tiro-latin-normal.woff2") format("woff2"); }
+@font-face { font-family: "Tiro Latin"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/tiro-latin-italic.woff2") format("woff2"); }
+@font-face { font-family: "Tiro Devanagari Hindi"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/tiro-tagline.woff2") format("woff2"); }
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-hindi: "Tiro Devanagari Hindi", "Noto Sans Devanagari", serif;
+  --font-serif: "Tiro Latin", Georgia, "Times New Roman", serif;
+
+  --color-nayra-50: #eff6ff;
+  --color-nayra-100: #dbeafe;
+  --color-nayra-200: #bfdbfe;
+  --color-nayra-300: #93c5fd;
+  --color-nayra-400: #38bdf8;
+  --color-nayra-500: #1d6fd8;
+  --color-nayra-600: #1e4fbf;
+  --color-nayra-700: #1e40af;
+  --color-nayra-800: #1e3a8a;
+  --color-nayra-900: #172554;
+  --color-nayra-950: #0f1a3d;
+
+  /* Brand tap-orange. 400/500 = fills & text on navy; 700 = text on white (AA 5.2:1) */
+  --color-tap-400: #fb9a45;
+  --color-tap-500: #f58220;
+  --color-tap-600: #e06d0c;
+  --color-tap-700: #c2410c;
+
+  /* WhatsApp action green, darkened for AA contrast with white text (5.1:1) */
+  --color-wa-500: #25d366;
+  --color-wa-600: #1a7f37;
+  --color-wa-700: #146c2e;
+
+  --shadow-soft: 0 20px 50px -20px rgba(30, 58, 138, .35);
+  --shadow-card: 0 1px 2px rgba(15, 26, 61, .04), 0 12px 32px -12px rgba(30, 58, 138, .18);
+
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+@layer base {
+  html { scroll-padding-top: 5.5rem; -webkit-tap-highlight-color: transparent; }
+  body { text-rendering: optimizeLegibility; }
+  summary::-webkit-details-marker { display: none; }
+  :focus-visible { outline: 3px solid var(--color-tap-500); outline-offset: 3px; border-radius: 6px; }
+  ::selection { background: var(--color-nayra-200); color: var(--color-nayra-900); }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+}
+
+@layer components {
+  /* Line icons from the inline SVG sprite (see top of index.html) */
+  .ico { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .ico-fill { fill: currentColor; stroke: none; flex-shrink: 0; }
+
+  .eyebrow { display: inline-flex; align-items: center; gap: .75rem; font-size: .75rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--color-nayra-600); }
+  .eyebrow::before { content: ""; width: 2rem; height: 1px; background: currentColor; opacity: .6; }
+  .eyebrow-light { color: var(--color-sky-300); }
+
+  /* Display headings: lighter weight + tight tracking = premium; <em> becomes a serif italic accent */
+  .h-display { font-weight: 600; letter-spacing: -.035em; line-height: 1.04; text-wrap: balance; }
+  .h-display em, .serif-em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+  .lead { font-size: 1.0625rem; line-height: 1.75; color: var(--color-slate-600); }
+  @media (min-width: 640px) { .lead { font-size: 1.125rem; } }
+
+  .btn-primary { display: inline-flex; min-height: 3.25rem; align-items: center; justify-content: center; gap: .6rem; border-radius: 9999px; background: var(--color-tap-500); padding: 0 1.75rem; font-weight: 600; color: var(--color-nayra-950); box-shadow: 0 10px 30px -10px rgba(245,130,32,.7), inset 0 1px 0 rgba(255,255,255,.35); transition: transform .2s, background-color .2s, box-shadow .2s; }
+  .btn-primary:hover { transform: translateY(-2px); background: var(--color-tap-400); box-shadow: 0 16px 36px -12px rgba(245,130,32,.8), inset 0 1px 0 rgba(255,255,255,.35); }
+  .link-arrow { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .5rem; font-weight: 600; }
+  .link-arrow svg { transition: transform .2s; }
+  .link-arrow:hover svg { transform: translateX(4px); }
+
+  .glass-chip { display: inline-flex; align-items: center; gap: .6rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,.14); background: rgba(23,37,84,.72); padding: .55rem 1rem .55rem .55rem; font-size: .8125rem; font-weight: 500; color: #fff; box-shadow: 0 10px 30px -12px rgba(0,0,0,.5); }
+  .glass-chip > span:first-child { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 9999px; background: rgba(255,255,255,.12); }
+
+
+  .field { margin-top: .375rem; width: 100%; border-radius: .75rem; border: 1px solid var(--color-slate-300); background: #fff; padding: .75rem 1rem; color: var(--color-slate-800); transition: border-color .15s, box-shadow .15s; }
+  .field::placeholder { color: var(--color-slate-500); }
+  .field:focus { outline: none; border-color: var(--color-nayra-500); box-shadow: 0 0 0 4px var(--color-nayra-100); }
+  .field[aria-invalid="true"] { border-color: var(--color-red-600); box-shadow: 0 0 0 4px var(--color-red-100); }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .no-js .reveal { opacity: 1; transform: none; }
+  .float { animation: float 6s ease-in-out infinite; will-change: transform; }
+  .float.paused { animation-play-state: paused; }
+
+  /* zig-zag ripple from the NAYRA label */
+  .ripple {
+    height: 10px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10' viewBox='0 0 16 10'%3E%3Cpath d='M0 5q4-5 8 0t8 0' fill='none' stroke='%23ffffff' stroke-opacity='.55' stroke-width='1.6'/%3E%3C/svg%3E") repeat-x center / 16px 10px;
+  }
+  .grid-dots { background-image: radial-gradient(rgba(255,255,255,.12) 1px, transparent 1px); background-size: 22px 22px; }
+}
+
+@keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
+@keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .reveal, .float { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+  .animate-marquee { animation: none !important; }
+}

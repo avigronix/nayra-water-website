@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build output (recreate with: npm run dist)
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Secrets / local env (never commit)
+.env
+.env.*
+!.env.example
+
+# Hosting CLI folders
+.netlify/
+.vercel/
+.wrangler/
+
+# Caches
+.cache/
+__pycache__/
+*.pyc
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# OS junk
+.DS_Store
+Thumbs.db
+Desktop.ini

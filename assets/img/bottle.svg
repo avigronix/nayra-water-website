@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 520">
+  <defs>
+    <linearGradient id="glass" x1="0" x2="1">
+      <stop offset="0" stop-color="#cfefff" stop-opacity=".55"/>
+      <stop offset=".45" stop-color="#ffffff" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#a9dcff" stop-opacity=".55"/>
+    </linearGradient>
+    <linearGradient id="label" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#1D6FD8"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7dd3fc" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity=".45"/>
+    </linearGradient>
+  </defs>
+  <!-- cap -->
+  <rect x="72" y="8" width="56" height="34" rx="6" fill="#1E3A8A"/>
+  <rect x="72" y="14" width="56" height="4" fill="#2b4fb0"/>
+  <rect x="72" y="22" width="56" height="4" fill="#2b4fb0"/>
+  <rect x="66" y="42" width="68" height="10" rx="3" fill="#F58220"/>
+  <!-- body -->
+  <path d="M78 52h44v26c0 14 40 34 40 70v330c0 18-12 30-30 30H68c-18 0-30-12-30-30V148c0-36 40-56 40-70z" fill="url(#glass)" stroke="#9fd6f7" stroke-width="2"/>
+  <path d="M42 200h116v278c0 16-10 26-26 26H68c-16 0-26-10-26-26z" fill="url(#water)"/>
+  <!-- ridges -->
+  <path d="M40 170h120M40 430h120M40 446h120" stroke="#bfe6ff" stroke-width="3"/>
+  <!-- label -->
+  <rect x="38" y="230" width="124" height="170" fill="url(#label)"/>
+  <path d="M38 372c30-14 60 8 124-6v34H38z" fill="#38bdf8" opacity=".7"/>
+  <path d="M38 384l22-22 14 12 20-26 26 30 16-14 26 22v14H38z" fill="#fff" opacity=".9"/>
+  <path d="M74 262c0-6 4-10 10-10h8" stroke="#F58220" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M74 264v5" stroke="#F58220" stroke-width="5" stroke-linecap="round"/>
+  <path d="M74 274c-2 3-3.5 5-3.5 6.8a3.5 3.5 0 0 0 7 0c0-1.8-1.5-3.8-3.5-6.8z" fill="#F58220"/>
+  <text x="100" y="318" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-weight="800" font-size="27" letter-spacing="1.5" fill="#fff">NAYRA</text>
+  <text x="100" y="338" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" letter-spacing=".4" fill="#dbeafe">PURE PACKAGED DRINKING WATER</text>
+  <!-- shine -->
+  <path d="M60 160c-6 60-6 220 0 300" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".55" fill="none"/>
+</svg>

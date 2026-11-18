@@ -1,0 +1,15 @@
+{
+  "name": "nayra-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NAYRA Pure Packaged Drinking Water - static website",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i src/input.css -o assets/css/style.css --watch",
+    "build": "npx @tailwindcss/cli -i src/input.css -o assets/css/style.css --minify",
+    "dist": "npm run build && node scripts/build-dist.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}
